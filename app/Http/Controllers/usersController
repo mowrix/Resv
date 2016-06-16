@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers;
+use Illuminate\Database\Eloquent\Model;
+use App\users;
+
+class Users extends Controller
+{
+    public function index(){
+    $users = users::get();
+
+    return view('users.index', ['users' => $Users]);
+    }
+      public function login(){
+        DB::table('users')->insert([
+        ['email' => 'taylor@example.com', 'votes' => 0],
+        ['email' => 'dayle@example.com', 'votes' => 0]
+      ]);
+
+      }
+}
