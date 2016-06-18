@@ -12,14 +12,14 @@
     <title>THE PIPS RESRVATIONS</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,10 +51,14 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="users">FLIGHT</a></li>
-                <li><a href="http://localhost/appppp/index.html">HOTEL</a></li>
-                <li><a href="">TOURS</a></li>
-                <li><a href="logins">LOGIN</a></li>
+                <li><a href="flights">Flights</a></li>
+                <li><a href="hotel">Hotel</a></li>
+                <li><a href="{{url('register')}}">Register</a></li>
+                <li><a href="{{url('login')}}">Login</a></li>
+                <li><a href="{{url('logout')}}">Sign Out</a></li>
+                @if(Auth::check())
+                <li><a href="#">{{Auth::user()->name}}</a></li>
+                @endif
               </ul>
             </div>
           </div>
@@ -80,7 +84,7 @@
             <div class="carousel-caption">
               <h1 style="color:black;">TOURS.</h1>
               <p style="color:black;"><b>Enjoy a place where one can just have fun and link up with friends or family. All accomodation are just as easy as a button click.</b></p>
-              <p><a class="btn btn-lg btn-primary" href="http://localhost/login/index.html" role="button">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{{url('login')}}" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -90,7 +94,7 @@
             <div class="carousel-caption">
               <h1>FLIGHTS.</h1>
               <p>Book a flight now. It is very easy.There are lots of services including continental and local dishes, with luxury and comfort attached to each flight class.</p>
-              <p><a class="btn btn-lg btn-primary" href="http://localhost/img/index.html" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{{url('register')}}" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -252,11 +256,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script src="js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

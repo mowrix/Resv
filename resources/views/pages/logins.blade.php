@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>LOGIN / REGISTER</title>
-<meta name="csrf-token" content="{{csrf_token()}}" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Tab Widget Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -26,13 +25,6 @@
 			});
 		});
 	   </script>
-     <script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
 <!--//js-->
 </head>
 <body>
@@ -51,11 +43,11 @@
 						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 							<div class="login-top">
                 <!-- action="{{ url('store') }}" -->
-								<form action="{{ url('store') }}" method="post">
+								<form  method="post">
 									<input type="text" class="email" placeholder="Email" required="" name="email"/>
 									<input type="password" class="password" placeholder="Password" required="" name="password"/>
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <input name="_method" type="hidden" value="PATCH">
+                  <!-- <input name="_method" type="hidden" value="PATCH"> -->
 								 <!-- <input type="checkbox" id="brand" value=""> -->
 									<!-- <label for="brand"><span></span> Remember me?</label>  -->
 								</form>
@@ -89,7 +81,7 @@
 											<!-- <a href="#">Forgot password?</a> -->
 										</li>
 										<li>
-											<form>
+											<form  method="post" action="{{url('store')}}">
 												<input type="submit" value="SIGN UP"/>
 											</form>
 										</li>

@@ -10,26 +10,28 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-    Route::get("index","moreAdd@index");
-    Route::get("store","moreAdds@store");
-    Route::post("store","moreAdd@store");
+    // Route::get("index","moreAdd@index");
+    // Route::get("store","moreAdds@store");
+    // Route::post("store","moreAdd@store");
 
     // Route::post("store","logins@store");
-
+Route::get('hotel',['middleware' =>'auth',function () {
+    return view('pages.hotel');
+}]);
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('index', function () {
     return view('pages.index');
 });
-Route::get('users', function () {
-    return view('pages.users');
-});
+Route::resource('flights', 'flightController');
 Route::get('logins', function () {
     return view('pages.logins');
 });
 
-Route::get('test2', function () {
-    return view('pages.test2');
+Route::get('book', function () {
+    return view('pages.book');
 });
-Route::get('/','usersController@index');
+// Route::get('/','usersController@index');
+
+// This route is responsible for authentication.
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
